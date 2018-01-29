@@ -1,0 +1,14 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "heroku": {
+    "url": "postgres://juxxmfikibxfin:9246f02e6a991c653375c87741bec3ed3f9004ff460c074824d936a427a30000@ec2-107-20-224-137.compute-1.amazonaws.com:5432/d6477na8n4krvh?ssl=true",
+    "password": "9246f02e6a991c653375c87741bec3ed3f9004ff460c074824d936a427a30000",
+    "name": "heroku",
+    "user": "juxxmfikibxfin",
+    "connector": "postgresql",
+    "debug": true
+  }
+}
