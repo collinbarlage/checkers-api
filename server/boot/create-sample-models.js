@@ -11,7 +11,7 @@ module.exports = function(app) {
     //  if (err) throw err;
     //});
 
-    app.dataSources.heroku.automigrate(['game'], function(err) {
+    app.dataSources.heroku.automigrate(['Game'], function(err) {
         if (err) throw err;
     });
 
