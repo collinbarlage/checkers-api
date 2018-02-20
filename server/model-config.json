@@ -1,4 +1,5 @@
 {
+  
   "_meta": {
     "sources": [
       "loopback/common/models",
@@ -35,10 +36,7 @@
     "dataSource": "db",
     "public": false
   },
-  "Message": {
-    "dataSource": null
-  },
-  "Game": {
+  "game": {
     "dataSource": "heroku",
     "public": true
   }

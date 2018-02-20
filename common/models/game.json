@@ -1,5 +1,5 @@
 {
-  "name": "Game",
+  "name": "game",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {

@@ -5,13 +5,13 @@ var config = require('../config.json');
 
 module.exports = function(app) {
 
-    var Game = app.models.game;
+    var game = app.models.game;
 
     //app.dataSources.heroku.autoupdate(['ACL', 'AccessToken'], function(err) {
     //  if (err) throw err;
     //});
 
-    app.dataSources.heroku.automigrate(['Game'], function(err) {
+    app.dataSources.heroku.automigrate(['game'], function(err) {
         if (err) throw err;
     });
 
