@@ -2,15 +2,24 @@ var async = require('async');
 var http = require('http');
 var ds = require('../datasources.json');
 var config = require('../config.json');
+const io = require('socket.io')();
 
 module.exports = function(app) {
 
     var game = app.models.game;
 
-    //app.dataSources.heroku.autoupdate(['ACL', 'AccessToken'], function(err) {
-    //  if (err) throw err;
-    //});
+    //listen for connections
+	io.listen(8000);
+	console.log('listening on port 8000');
 
+    io.on('connection', (client) => {
+    	//emit events
+    	console.log("ayye connection!");
+    });
+    
+
+
+    //migrate models
     app.dataSources.heroku.automigrate(['game'], function(err) {
         if (err) throw err;
     });
