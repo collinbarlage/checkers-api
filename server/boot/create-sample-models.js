@@ -3,6 +3,7 @@ var http = require('http');
 var ds = require('../datasources.json');
 var config = require('../config.json');
 const io = require('socket.io')();
+var players = [];
 
 module.exports = function(app) {
 
@@ -13,12 +14,20 @@ module.exports = function(app) {
     console.log('listening on port 8000');
 
     io.on('connection', (client) => {
-        client.on('subscribeToTimer', (interval) => {
-            console.log('client is subscribing to timer with interval ', interval);
-            setInterval(() => {
-                client.emit('timer', new Date());
-            }, interval);
-        });
+    	//check to see if too many players are connected
+    	if(players.length > 1) {
+    		console.log("3rd browser attempting to connect. disconnectiong client...");
+    		client.disconnect(1);
+
+    	} else {
+    		players.push(client);
+	    	console.log('user', players.length, 'has connected');
+
+	        client.on('sendToServer', (data) => {
+	            console.log('client made a move:', data);
+	            io.emit('move', data);
+	        });
+	    }
     });
 
 
