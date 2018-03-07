@@ -12,6 +12,9 @@
     "key": {
       "type": "string",
       "required": false
+    },
+    "numPlayers": {
+      "type": "number"
     }
   },
   "validations": [],

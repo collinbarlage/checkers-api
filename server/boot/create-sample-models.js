@@ -3,7 +3,7 @@ var http = require('http');
 var ds = require('../datasources.json');
 var config = require('../config.json');
 const io = require('socket.io')();
-var players = [];
+var players = []; //TODO: get rid of this and keep track of players per game
 
 module.exports = function(app) {
 
@@ -15,17 +15,21 @@ module.exports = function(app) {
 
     io.on('connection', (client) => {
     	//check to see if too many players are connected
-    	if(players.length > 1) {
+    	if(players.length > 100000) { //TODO: get the numPlayers of game
     		console.log("3rd browser attempting to connect. disconnectiong client...");
     		client.disconnect(1);
 
     	} else {
-    		players.push(client);
-	    	console.log('user', players.length, 'has connected');
 
-	        client.on('sendToServer', (data) => {
+	        client.on('subscribe', (room, player) => {
+    			//players.push(client);
+	    		console.log('user', player, 'has connected');
+	            io.emit(room+ 'join', player);
+	        });
+
+	         client.on('sendToServer', (room, data) => {
 	            console.log('client made a move:', data);
-	            io.emit('move', data);
+	            io.emit(room, data);
 	        });
 	    }
     });
