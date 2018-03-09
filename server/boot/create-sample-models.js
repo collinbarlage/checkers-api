@@ -23,12 +23,12 @@ module.exports = function(app) {
 
 	        client.on('subscribe', (room, player) => {
     			//players.push(client);
-	    		console.log('user', player, 'has connected');
+	    		console.log('user', player, 'has connected in room', room);
 	            io.emit(room+ 'join', player);
 	        });
 
 	         client.on('sendToServer', (room, data) => {
-	            console.log('client made a move:', data);
+	            console.log('client made a move in room', room);
 	            io.emit(room, data);
 	        });
 	    }
