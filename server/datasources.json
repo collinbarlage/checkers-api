@@ -3,12 +3,29 @@
     "name": "db",
     "connector": "memory"
   },
-  "heroku": {
+  "sean_heroku": {
     "url": "postgres://juxxmfikibxfin:9246f02e6a991c653375c87741bec3ed3f9004ff460c074824d936a427a30000@ec2-107-20-224-137.compute-1.amazonaws.com:5432/d6477na8n4krvh?ssl=true",
     "password": "9246f02e6a991c653375c87741bec3ed3f9004ff460c074824d936a427a30000",
     "name": "heroku",
     "user": "juxxmfikibxfin",
     "connector": "postgresql",
     "debug": true
+  },
+  "heroku": {
+    "url": "postgres://whjkgbzrjdhofm:a639b6f86b5f19500a71b31225a5e99951dfe6fd64d6ce9339f4f5bdaa5d048d@ec2-54-235-66-24.compute-1.amazonaws.com:5432/d30mg0gs2iar9b?ssl=true",
+    "password": "a639b6f86b5f19500a71b31225a5e99951dfe6fd64d6ce9339f4f5bdaa5d048d",
+    "name": "heroku",
+    "user": "whjkgbzrjdhofm",
+    "connector": "postgresql",
+    "debug": true
+  },
+  "collin_heroku": {
+    "url": "postgres://dmgfpxvjtapihh:2acadb350467bc52787c3198e842b9d723f9c1d46b56c42776b13290d0103801@ec2-107-21-201-210.compute-1.amazonaws.com:5432/d1g2v1blmrp1q4?ssl=true",
+    "password": "2acadb350467bc52787c3198e842b9d723f9c1d46b56c42776b13290d0103801",
+    "name": "heroku",
+    "user": "dmgfpxvjtapihh",
+    "connector": "postgresql",
+    "debug": true
   }
+
 }
